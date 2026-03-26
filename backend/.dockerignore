@@ -1,0 +1,9 @@
+# Keep Docker build context small and fast
+.venv
+__pycache__
+*.pyc
+.pytest_cache
+.mypy_cache
+.ruff_cache
+.env
+tests
