@@ -1,16 +1,48 @@
-# React + Vite
+# Expense Management
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Full-stack expense app: **FastAPI + MySQL** (`backend/`) and **React + Vite + Tailwind** (`frontend/`).
 
-Currently, two official plugins are available:
+## Quick start (local)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+**Backend**
 
-## React Compiler
+```bash
+cd backend
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+copy .env.example .env
+uvicorn app.main:app --reload --port 8000
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**Frontend**
 
-## Expanding the ESLint configuration
+```bash
+cd frontend
+npm install
+copy .env.example .env
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+From repo root you can also run:
+
+```bash
+npm run install:frontend
+npm run dev
+```
+
+## Docker
+
+```bash
+docker compose up -d --build
+```
+
+- App UI: http://localhost:3000  
+- API docs: http://localhost:8000/docs  
+- phpMyAdmin: http://localhost:8080  
+
+## Layout
+
+- `backend/` — API, models, services, Docker image  
+- `frontend/` — SPA, nginx image for compose  
+- `docker-compose.yml` — mysql, backend, frontend, phpmyadmin  
